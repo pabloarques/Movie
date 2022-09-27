@@ -46,13 +46,15 @@ public class FirstFragment extends Fragment {
         };
 
        ArrayList <String> items = new ArrayList<>(Arrays.asList(data));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getContext(),
                 R.layout.lv_cards_row,
                 R.id.txtTitle,
                 items
 
         );
+
+        binding.lvCards.setAdapter(adapter);
     }
 
     @Override
