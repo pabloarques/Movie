@@ -1,6 +1,7 @@
 package com.example.movie;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +9,13 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.movie.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class FirstFragment extends Fragment {
 
@@ -36,25 +38,27 @@ public class FirstFragment extends Fragment {
 
 
         String [] data ={
-                "Los 400 golpes",
-                "El odio",
-                "El padrino",
-                "El padrino. Parte II",
-                "Ocurrió cerca de su casa",
-                "Infiltrados",
-                "Umberto D."
+                "Pikachu",
+                "Blastoise",
+                "Evee"
         };
 
        ArrayList <String> items = new ArrayList<>(Arrays.asList(data));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getContext(),
-                R.layout.lv_cards_row,
-                R.id.txtTitle,
+                R.layout.lv_pokemon_row,
+                R.id.txtPoke,
                 items
 
         );
 
-        binding.lvCards.setAdapter(adapter);
+
+
+
+        binding.lvPokemon.setAdapter(adapter);
+
+        PokeApi api = new PokeApi();
+        api.getPokemon();
     }
 
     @Override
