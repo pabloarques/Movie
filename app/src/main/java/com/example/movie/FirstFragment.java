@@ -34,6 +34,7 @@ public class FirstFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -52,14 +53,24 @@ public class FirstFragment extends Fragment {
 
         );
 
-
-
-
         binding.lvPokemon.setAdapter(adapter);
+       // refresh();
 
-        PokeApi api = new PokeApi();
-        api.getPokemon();
+       /* private void refresh() {
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() ->{
+                PokeApi api = new PokeApi();
+                ArrayList <Pokemon> pokemons = api.getPokemon();
+                adapter.clear();
+                adapter.addAll(pokemons);
+
+            });
+        }*/
+
     }
+
+
+
 
     @Override
     public void onDestroyView() {

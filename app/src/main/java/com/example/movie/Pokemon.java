@@ -1,17 +1,36 @@
 package com.example.movie;
 
+import androidx.annotation.NonNull;
+
 public class Pokemon {
 
-        private String nombre;
-        private int peso;
-        private int altura;
-        private String image;
+    private String nombre;
+    private int peso;
+    private int altura;
+    private String image;
+    private String DetailsURL;
 
-    public Pokemon(String nombre, int peso, int altura, String image) {
+    public String getDetailsURL() {
+        return DetailsURL;
+    }
+
+    public void setDetailsURL(String details) {
+        DetailsURL = details;
+    }
+
+
+    /* public Pokemon(String nombre, int peso, int altura, String image) {
         this.nombre = nombre;
         this.peso = peso;
         this.altura = altura;
         this.image = image;
+    }
+*/
+
+    @NonNull
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     public String getNombre() {
