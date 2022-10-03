@@ -38,14 +38,8 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        String [] data ={
-                "Pikachu",
-                "Blastoise",
-                "Evee"
-        };
-
-       ArrayList <String> items = new ArrayList<>(Arrays.asList(data));
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+       ArrayList <String> items = new ArrayList<>();
+       ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getContext(),
                 R.layout.lv_pokemon_row,
                 R.id.txtPoke,
@@ -54,21 +48,25 @@ public class FirstFragment extends Fragment {
         );
 
         binding.lvPokemon.setAdapter(adapter);
-       // refresh();
 
-       /* private void refresh() {
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() ->{
-                PokeApi api = new PokeApi();
-                ArrayList <Pokemon> pokemons = api.getPokemon();
-                adapter.clear();
-                adapter.addAll(pokemons);
+        // refresh();
 
-            });
-        }*/
+
 
     }
 
+    private void refresh() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() ->{
+            PokeApi api = new PokeApi();
+            ArrayList <Pokemon> pokemons = api.getPokemon();
+
+
+            //adapter.clear();
+            //adapter.addAll(pokemons);
+
+        });
+    }
 
 
 

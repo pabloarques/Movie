@@ -27,10 +27,15 @@ public class Pokemon {
     }
 */
 
-    @NonNull
     @Override
     public String toString() {
-        return super.toString();
+        return "Pokemon{" +
+                "nombre='" + nombre + '\'' +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", image='" + image + '\'' +
+                ", DetailsURL='" + DetailsURL + '\'' +
+                '}';
     }
 
     public String getNombre() {

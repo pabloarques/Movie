@@ -31,12 +31,17 @@ public class PokeApi {
             String resultDetails = HttpUtils.get(pokemon.getDetailsURL());
             JSONObject jsonDetails = new JSONObject(resultDetails);
 
+
+            JSONObject sprites = jsonDetails.getJSONObject("sprites");
+            String spriteDefault = sprites.getString(("front_default"));
+            pokemon.setImage(spriteDefault);
+
             pokemon.setPeso(jsonDetails.getInt("peso"));
 
             pokemons.add(pokemon);
             }
 
-            Log.e("XXPOKEMON", result);
+            //Log.e("XXPOKEMON", result);
             return pokemons;
 
         } catch (Exception ex) {
